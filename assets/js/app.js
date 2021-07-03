@@ -60,7 +60,7 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
   
     //Create scale functions
 
-    var xTimeScale = d3.scaleTime()
+    var xLinearScale = d3.scaleTime()
     .domain(d3.extent(USdata, d => d.poverty ))
     .range([0, width]);
 
@@ -69,7 +69,7 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
     .range([height, 0]);
     //Create axis functions
 
-    var xAxis = d3.axisBottom(xTimeScale);
+    var xAxis = d3.axisBottom(xLinearScale);
     var yAxis = d3.axisLeft(yLinearScale);
     //Append Axes to the chart
 
@@ -82,24 +82,42 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
 
     //line generator
       var line = d3.line()
-        .x(d => xTimeScale(d.poverty))
+        .x(d => xLinearScale(d.poverty))
         .y(d => yLinearScale(d.obesity));
     //Create Circles
     var circlesGroup = chartGroup.selectAll("circle")
     .data(USdata)
     .enter()
     .append("circle")
-    .attr("cx", d => xTimeScale(d.poverty))
+    .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.obesity))
     .attr("r", "10")
     .attr("fill", "pink")
     .attr("stroke-width", "1")
     .attr("stroke", "purple");
+
+    var circleLabels = chartGroup.selectAll(null).data(USdata).enter().append("text");
+
+    circleLabels
+      .attr("x", function(d) {
+        return xLinearScale(d.poverty);
+      })
+      .attr("y", function(d) {
+        return yLinearScale(d.obesity);
+      })
+      .text(function(d) {
+        return d.abbr;
+      })
+      .attr("font-weight", "bold")
+      .attr("font-size", "10px")
+      .attr("text-anchor", "middle")
+      .attr("fill", "black");
     
     //Initialize tool tip
     var toolTip = d3.tip()
-    .attr("class", "tooltip")
-    .offset([80, -60])
+    .attr("class","tooltip")
+    .attr("fill", "blue")
+    .offset([80, 60])
     .html(function(d) {
       return (`${d.abbr}<br>Poverty Rate: ${d.poverty}%<br>Obesity Rate: ${d.obesity}%`);
 
@@ -115,6 +133,8 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
     .on("mouseout", function(d) {
       toolTip.hide(d);
     });
+
+
    // Create axes labels
    chartGroup.append("text")
    .attr("transform", "rotate(-90)")
