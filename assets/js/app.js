@@ -45,18 +45,42 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
 
     });
 
-    //displaying the data table
-    d3.select(".article")
-    .append("table")
+    function data_display() {
+
+    var dtable = d3.select(".article").append("table")
     .classed("table table-striped", true)
-    .attr("style", "margin-left: 100px; margin-top: 50px;")
-    .selectAll("table")
+    .attr("style", "margin-left: 100px; margin-top: 50px;");
+
+    var dhead =dtable.append("thead").append("tr")
+    .classed("theader", true);
+
+
+    function makingheaders(data) {
+    dhead.selectAll("tr")
+    .data(USdata.slice(0,1))
+    .enter().append("th")
+    .text(data);   
+    }
+    
+    makingheaders("State");
+    makingheaders("Abbrevation");
+    makingheaders("Poverty Rate");
+    makingheaders("Obesity Rate");
+    
+
+    //displaying the data table
+    dtable.selectAll("table")
     .data(USdata)
     .enter()
     .append("tr")
     .html(function(d) {
-      return `<td>${d.state}</td><td>${d.abbr}</td><td>${d.poverty}</td> &emsp; <td>${d.obesity}</td>`;
+      return `<td>${d.state}</td><td>${d.abbr}</td><td>${d.poverty}</td><td>${d.obesity}</td>`;
     });
+
+  };
+
+  data_display();
+
   
     //Create scale functions
 
