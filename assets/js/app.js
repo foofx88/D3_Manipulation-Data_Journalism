@@ -60,12 +60,12 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
   
     //Create scale functions
 
-    var xLinearScale = d3.scaleTime()
+    var xLinearScale = d3.scaleLinear()
     .domain(d3.extent(USdata, d => d.poverty ))
     .range([0, width]);
 
     var yLinearScale = d3.scaleLinear()
-    .domain([0, d3.max(USdata, d => d.obesity)])
+    .domain(d3.extent(USdata, d => d.obesity))
     .range([height, 0]);
     //Create axis functions
 
@@ -89,12 +89,11 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
     .data(USdata)
     .enter()
     .append("circle")
+    .classed("stateCircle", true)
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.obesity))
     .attr("r", "10")
-    .attr("fill", "pink")
-    .attr("stroke-width", "1")
-    .attr("stroke", "purple");
+    .attr("stroke-width", "1");
 
     var circleLabels = chartGroup.selectAll(null).data(USdata).enter().append("text");
 
@@ -108,16 +107,13 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
       .text(function(d) {
         return d.abbr;
       })
-      .attr("font-weight", "bold")
-      .attr("font-size", "10px")
-      .attr("text-anchor", "middle")
-      .attr("fill", "black");
+      .classed("aText", true);
     
     //Initialize tool tip
     var toolTip = d3.tip()
-    .attr("class","tooltip")
+    .attr("class","d3-tip")
     .attr("fill", "blue")
-    .offset([80, 60])
+    .offset([40, 75])
     .html(function(d) {
       return (`${d.abbr}<br>Poverty Rate: ${d.poverty}%<br>Obesity Rate: ${d.obesity}%`);
 
@@ -133,7 +129,6 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
     .on("mouseout", function(d) {
       toolTip.hide(d);
     });
-
 
    // Create axes labels
    chartGroup.append("text")
