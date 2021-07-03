@@ -116,8 +116,8 @@ d3.csv("../assets/data/data.csv").then(function(USdata) {
     .classed("stateCircle", true)
     .attr("cx", d => xLinearScale(d.poverty))
     .attr("cy", d => yLinearScale(d.obesity))
-    .attr("r", "10")
-    .attr("stroke-width", "1");
+    .attr("r", "12")
+    .attr("stroke-width", "3");
 
     var circleLabels = chartGroup.selectAll(null).data(USdata).enter().append("text");
 
