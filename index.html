@@ -10,7 +10,11 @@
 
   <div id= "header">
     <h1>D3Times</h1>
-    <marquee behavior="scroll" direction="left" scrollamount="15">⬇ Click on the X and Y Axis texts to display data ⬇</marquee>
+    <marquee behavior="scroll" direction="left" scrollamount="12" 
+    onmouseover="this.stop();" onmouseout="this.start();" behavior="slide">
+    ⬇ &emsp; Click on the X and Y Axis texts to display data &emsp; ⬇ &emsp;
+    Mouse over each scatter points to view the data &emsp; ⬇ &emsp;
+    Each scatter points are represented by each State's Abbrevation &emsp; ⬇ &emsp; </marquee>
     </div>
 </head>
 
