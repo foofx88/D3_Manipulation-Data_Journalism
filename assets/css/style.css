@@ -7,11 +7,24 @@
 html {
   position: relative;
   min-height: 100%;
+  
+}
+
+#header {
+  position: relative;
+  top: 0;
+  width: 100%; /* Set the fixed height of the footer here */
+  height: 10px;
+  padding-top: 20px;
+  padding-bottom: 80px;
+  text-align: left;
+  background-color: #8896da;
 }
 
 body {
   /* Padding bottom by footer height */
   padding-bottom: 80px;
+  background-color: #d0d5ec;
 }
 
 #footer {
@@ -21,11 +34,26 @@ body {
   height: 10px;
   padding-top: 20px;
   padding-bottom: 40px;
-  text-align: center;
-  background-color: #f5f5f5;
+  color: black;
+  text-align: right;
+  background-color: #8896da;
 }
 
 #footer p {
   margin: 0;
   font-size: 16px;
+}
+
+table {
+  width: 10px;
+}
+
+th {
+  height: 30px;
+  width: 10px;
+}
+
+tr {
+  height: 30px;
+  width: 10px;
 }
