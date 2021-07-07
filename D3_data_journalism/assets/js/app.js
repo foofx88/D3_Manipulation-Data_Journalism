@@ -143,7 +143,8 @@ function makeResponsive() {
         .attr("transform", `translate(${margin.left}, ${margin.top})`);
     
     //Reading the data from the CSV file
-    d3.csv("/assets/data/data.csv").then(function(USdata, err) {
+    d3.csv(`D3_data_journalism/assets/data/data.csv`).then(function(USdata, err) {
+     
         if (err) throw err;
         // Parse data
         USdata.forEach(function(data) {
