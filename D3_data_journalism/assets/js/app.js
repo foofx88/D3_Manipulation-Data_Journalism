@@ -76,7 +76,7 @@ function updateToolTip(selectedX, selectedY, circlesGroup, textGroup) {
       .attr("class", "d3-tip")
       .html(function(d) {
         if (selectedX === "age") {
-        // All yAxis tooltip labels are fixed
+     
         // Displaying Age for xAxis.
       return (`<b>${d.state}</b><hr>${xlabel} ${d[selectedX]}<br>${ylabel}${d[selectedY]}%`);} 
       
