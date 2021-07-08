@@ -118,7 +118,7 @@ function makeResponsive() {
         svgArea.remove();
     }
     //setting SVG size to be responsive
-    var svgWidth = window.innerWidth/1.1;
+    var svgWidth = window.innerWidth/1.3;
     var svgHeight = window.innerHeight/1.1;
     
     //Initialising margins for page
@@ -126,7 +126,7 @@ function makeResponsive() {
       top: 20,
       right: 20,
       bottom: 80,
-      left: 80
+      left: 40
     };
     //Initialising Chart area 
     var chartHeight = svgHeight - margin.top - margin.bottom;
