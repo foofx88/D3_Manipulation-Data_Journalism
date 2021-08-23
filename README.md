@@ -1,3 +1,6 @@
+<h3>D3 Demo - Data Journalism</h3>
+<hr>
+
 <img src="https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif" alt="Newsroom" width="240" height="180" align="right">
 
 Using the States dataset provided in data.csv, the data is presented to the HTML file via Javascript using D3.csv() <br>
