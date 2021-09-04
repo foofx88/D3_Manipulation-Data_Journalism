@@ -3,7 +3,7 @@
 
 <img src="https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif" alt="Newsroom" width="240" height="180" align="right">
 
-Using the States dataset provided in data.csv, the data is presented to the HTML file via Javascript using D3.csv() <br>
+Using the States dataset provided in <a href="/D3_data_journalism/assets/data/data.csv">data.csv</a>, the data is presented to the HTML file via Javascript using D3.csv() <br>
 The dataset includes data on rates of income, obesity, poverty, etc. by state. 
 
 <hr>
@@ -29,4 +29,4 @@ Even so, the conditionals are set for the tool tip in order to be interactive.
 
 
 
-<a href="https://foofx88.github.io/d3-challenge/">Visit the page here</a>
+<a href="https://foofx88.github.io/d3-challenge/">Visit the page here</a> or <a href="/D3_data_journalism/assets/js/app.js">Explore the Javascript codes</a>
