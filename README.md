@@ -1,4 +1,4 @@
-<h3>D3 Demo - Data Journalism</h3>
+<h3>D3 manipulating Data Visualization - Data Journalism</h3>
 <hr>
 
 <img src="https://media.giphy.com/media/v2xIous7mnEYg/giphy.gif" alt="Newsroom" width="240" height="180" align="right">
