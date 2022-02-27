@@ -29,4 +29,4 @@ Even so, the conditionals are set for the tool tip in order to be interactive.
 
 
 
-<a href="https://foofx88.github.io/d3-challenge/">Visit the page here</a> or <a href="/D3_data_journalism/assets/js/app.js">Explore the Javascript codes</a>
+<a href="https://foofx88.github.io/D3_Manipulation-Data_Journalism/">Visit the page here</a> or <a href="/D3_data_journalism/assets/js/app.js">Explore the Javascript codes</a>
